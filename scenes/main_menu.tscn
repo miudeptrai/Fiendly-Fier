@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://bjk1kvho8tds5"]
+
+[ext_resource type="Script" uid="uid://uv8idakcoeh6" path="res://scripts/main_menu.gd" id="1_bqqt6"]
+[ext_resource type="FontFile" uid="uid://c1d5wpjv41l3a" path="res://asset/LowresPixel-Regular.otf" id="1_ekxnf"]
+[ext_resource type="Script" uid="uid://dbh3kdy3f630i" path="res://scripts/menu_button.gd" id="2_bqqt6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
+bg_color = Color(0.17911205, 0.6154889, 0.9999998, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Main Menu" type="Control" unique_id=476993527]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bqqt6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=148129117]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -114.0
+offset_right = 216.0
+offset_bottom = 245.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Missions Button" type="Button" parent="VBoxContainer" unique_id=1421888491]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_ekxnf")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
+text = "Missions"
+script = ExtResource("2_bqqt6")
+
+[node name="Options Button" type="Button" parent="VBoxContainer" unique_id=954759699]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_ekxnf")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
+text = "Options"
+script = ExtResource("2_bqqt6")
+
+[node name="Quit Button" type="Button" parent="VBoxContainer" unique_id=2020725788]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_ekxnf")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
+text = "Quit"
+script = ExtResource("2_bqqt6")
+
+[node name="Label" type="Label" parent="." unique_id=1831998172]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -359.5
+offset_right = 359.5
+offset_bottom = 129.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 8
+theme_override_fonts/font = ExtResource("1_ekxnf")
+theme_override_font_sizes/font_size = 128
+text = "Fiendly Fier"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="VBoxContainer/Missions Button" to="VBoxContainer/Missions Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Missions Button" to="VBoxContainer/Missions Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Missions Button" to="." method="_on_missions_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Options Button" to="VBoxContainer/Options Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Options Button" to="VBoxContainer/Options Button" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="VBoxContainer/Quit Button" to="VBoxContainer/Quit Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Quit Button" to="VBoxContainer/Quit Button" method="_on_mouse_exited"]

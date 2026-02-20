@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c15yorqwe62km"]
+
+[ext_resource type="Texture2D" uid="uid://c4q2mbu85v1g4" path="res://asset/Biome_tiles/grass.png" id="1_6oyfn"]
+
+[node name="Hunting Map" type="Node2D" unique_id=1278216331]
+
+[node name="Grass" type="Sprite2D" parent="." unique_id=1080084]
+position = Vector2(234, 294)
+texture = ExtResource("1_6oyfn")

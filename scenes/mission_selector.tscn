@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dwv67q7vlwq7k"]
+
+[ext_resource type="Script" uid="uid://d1fqtgtf2s8ns" path="res://scripts/mission_selector.gd" id="1_ba35c"]
+[ext_resource type="PackedScene" uid="uid://dj6hjkgwosgs8" path="res://scenes/chapter_button.tscn" id="2_tpwlw"]
+[ext_resource type="Script" uid="uid://d2jw2geei5q1q" path="res://scripts/chapter.gd" id="3_72e3i"]
+[ext_resource type="Script" uid="uid://ba8o7f7c58j4p" path="res://scripts/sub_chapter.gd" id="4_gfium"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aehxr"]
+bg_color = Color(0.20942885, 0.2094289, 0.20942876, 1)
+
+[sub_resource type="Resource" id="Resource_m8ifm"]
+script = ExtResource("4_gfium")
+display_name = "Hunting"
+map = "res://scenes/hunting_map.tscn"
+metadata/_custom_type_script = "uid://ba8o7f7c58j4p"
+
+[sub_resource type="Resource" id="Resource_2fhc8"]
+script = ExtResource("3_72e3i")
+display_name = "Raining Cats And Dogs"
+sub_chapters = Array[ExtResource("4_gfium")]([SubResource("Resource_m8ifm")])
+metadata/_custom_type_script = "uid://d2jw2geei5q1q"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ba35c"]
+
+[node name="Mission Selector" type="Control" unique_id=1755727448]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ba35c")
+
+[node name="Panel" type="Panel" parent="." unique_id=680185952]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 298.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_aehxr")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1738884254]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Chapter Selector" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=601841649]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 32
+
+[node name="Chapter1" parent="Panel/ScrollContainer/Chapter Selector" unique_id=66208755 instance=ExtResource("2_tpwlw")]
+layout_mode = 2
+chapter = SubResource("Resource_2fhc8")
+
+[node name="Panel2" type="Panel" parent="." unique_id=599229668]
+layout_mode = 0
+offset_left = 298.0
+offset_right = 959.0
+offset_bottom = 541.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ba35c")
+
+[node name="GridContainer" type="GridContainer" parent="Panel2" unique_id=2138249546]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[connection signal="load_sub_chapters" from="Panel/ScrollContainer/Chapter Selector/Chapter1" to="." method="_on_chapter_button_load_sub_chapters"]
+[connection signal="pressed" from="Panel/ScrollContainer/Chapter Selector/Chapter1" to="Panel/ScrollContainer/Chapter Selector/Chapter1" method="_on_pressed"]
