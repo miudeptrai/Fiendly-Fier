@@ -16,6 +16,8 @@ func _ready() -> void:
 func setup(user: CharacterBody2D, pos: Vector3i) -> void:
 	user_screen = user;
 	button.pressed.connect(user_screen._on_troop_pressed.bind(self));
+	button.mouse_entered.connect(user_screen._on_troop_mouse_entered.bind(self));
+	button.mouse_exited.connect(user_screen._on_troop_mouse_exited);
 	
 	stats.grid_pos = pos;
 

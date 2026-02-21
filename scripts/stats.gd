@@ -34,6 +34,8 @@ signal moved;
 @export var recoil_offset: Dictionary[String, int] = {};
 @export var rotate_speed: float = 5.0;
 
+@export var texture: Texture2D;
+
 #@export var textures: Dictionary[Factions.FactionsType, Texture2D] = {};
 
 var curr_defense: float = 0.0;
@@ -89,6 +91,12 @@ func setup_stats() -> void:
 func calculate_morale_decrease(dmg: float) -> float:
 	if (health == 0): return dmg;
 	return dmg / health;
+
+func get_health_percentage() -> float:
+	return health / max_health * 100.0;
+
+func get_morale_percentage() -> float:
+	return morale / curr_max_morale * 100.0;
 
 func get_global_pos(tile_size: Vector2i) -> Vector2:
 	return Vector2i(grid_pos.x * tile_size.x, grid_pos.y * tile_size.y)\

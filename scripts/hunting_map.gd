@@ -48,6 +48,9 @@ func load_astar() -> void:
 	#Connect points
 	connect_astar();
 	print("Connected astar successfully");
+	
+	#Disable points
+	disable_all();
 
 func connect_astar() -> void:
 	for layer in range(layer_count):
@@ -89,6 +92,21 @@ func connect_astar() -> void:
 				
 				if (astar.has_point(neighbour_id)):
 					astar.connect_points(id, neighbour_id);
+
+func disable_all() -> void:
+	for layer in range(layer_count):
+		var used_cells: Array[Vector2i] = tilemap.get_used_cells(layer);
+		
+		for cell in used_cells:
+			var tile_data: TileData = tilemap.get_cell_tile_data(layer, cell);
+			if (tile_data == null): continue;
+			
+			if (not tile_data.get_custom_data("walkable")): continue;
+			
+			var pos: Vector3i = Vector3i(cell.x, cell.y, layer);
+			var id: int = get_id(pos);
+			
+			astar.set_point_disabled(id, true);
 
 func get_id(pos: Vector3i) -> int:
 	return pos.x + pos.y * grid_width + pos.z * grid_width * grid_height;
