@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dochsu3hvhqgl"]
+
+[ext_resource type="Script" uid="uid://c450y77awit7u" path="res://scripts/rifle_man.gd" id="1_u3kgv"]
+[ext_resource type="Texture2D" uid="uid://dfrw71egdtutc" path="res://asset/Troops/WWI/rifle-man.png" id="2_3qk45"]
+[ext_resource type="Resource" uid="uid://cpf335jhk7bvt" path="res://asset/Stats/rifle-man-stats.tres" id="2_b0nam"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0nam"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qk45"]
+bg_color = Color(1, 1, 1, 0.84313726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghl74"]
+bg_color = Color(1, 1, 1, 0.5254902)
+
+[node name="Rifle Man" type="Area2D" unique_id=1026308907]
+script = ExtResource("1_u3kgv")
+stats = ExtResource("2_b0nam")
+
+[node name="Button" type="Button" parent="." unique_id=2070211605]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+pivot_offset = Vector2(32, 32)
+theme_override_styles/normal = SubResource("StyleBoxFlat_b0nam")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3qk45")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ghl74")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=127186123 groups=["Troop"]]
+texture = ExtResource("2_3qk45")

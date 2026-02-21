@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://csmneuiah6ian"]
+
+[ext_resource type="Script" uid="uid://bg78k2vgweuwv" path="res://scripts/user_screen.gd" id="1_vdrwj"]
+
+[node name="User Screen" type="CharacterBody2D" unique_id=387316454]
+script = ExtResource("1_vdrwj")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=558933083]
+
+[node name="Control" type="Control" parent="." unique_id=470936619]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -480.0
+offset_top = -270.0
+offset_right = 480.0
+offset_bottom = 270.0
