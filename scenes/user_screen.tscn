@@ -13,6 +13,34 @@ bg_color = Color(0.4831965, 0.12845594, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyk48"]
 bg_color = Color(0.22670761, 0.22670746, 0.22670746, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u2ob4"]
+bg_color = Color(0, 1, 0.14117648, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x32l3"]
+bg_color = Color(0, 1, 0.14117648, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_401al"]
+bg_color = Color(0.34509805, 0.34509805, 0.34509805, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frspt"]
+bg_color = Color(0.34407574, 0.34407577, 0.3440756, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uc24h"]
 bg_color = Color(0.067982666, 0.06798276, 0.067982696, 0.61960787)
 
@@ -60,6 +88,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_nxx57")
 
 [node name="StatsUI" type="Panel" parent="Control" unique_id=672096516]
 visible = false
+z_index = 10
 custom_minimum_size = Vector2(247, 305)
 layout_mode = 1
 anchors_preset = 6
@@ -74,6 +103,77 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jyk48")
 
+[node name="TextureRect" type="TextureRect" parent="Control/StatsUI" unique_id=643511243]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 22.0
+offset_right = 63.0
+offset_bottom = 62.0
+
+[node name="NameTag" type="Label" parent="Control/StatsUI" unique_id=1744386912]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 3.0
+offset_right = 244.0
+offset_bottom = 113.0
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Control/StatsUI" unique_id=1739837310]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 152.0
+offset_right = 194.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_uc24h")
+text = "Health"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="Control/StatsUI" unique_id=447976530]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 229.0
+offset_right = 194.0
+offset_bottom = 252.0
+theme_override_fonts/font = ExtResource("2_uc24h")
+text = "Morale"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="Control/StatsUI" unique_id=142075658]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.5
+offset_top = 22.5
+offset_right = 90.5
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_u2ob4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_x32l3")
+
+[node name="MoraleBar" type="ProgressBar" parent="Control/StatsUI" unique_id=705505187]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.5
+offset_top = 99.5
+offset_right = 90.5
+offset_bottom = 126.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_401al")
+theme_override_styles/fill = SubResource("StyleBoxFlat_frspt")
+
 [node name="Label" type="Label" parent="Control" unique_id=1920939335]
 visible = false
 layout_mode = 0
@@ -83,4 +183,5 @@ theme_override_fonts/font = ExtResource("2_uc24h")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_uc24h")
 text = "Hello World"
+autowrap_mode = 2
 script = ExtResource("2_hi5p3")

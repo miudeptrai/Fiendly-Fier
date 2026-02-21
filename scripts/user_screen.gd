@@ -8,6 +8,12 @@ extends CharacterBody2D
 
 var cur_selected_troop: Area2D: set = _on_selected_troop_set;
 
+func load_stats_ui() -> void:
+	stats_ui.get_node("NameTag").text = cur_selected_troop.stats.display_name;
+	stats_ui.get_node("HealthBar").value = cur_selected_troop.stats.get_health_percentage();
+	stats_ui.get_node("MoraleBar").value = cur_selected_troop.stats.get_morale_percentage();
+	stats_ui.get_node("TextureRect").texture = cur_selected_troop.stats.texture;
+
 func _process(delta: float) -> void:
 	var dir: Vector2 = Input.get_vector(
 		"move_left", "move_right", "move_up", "move_down"
@@ -27,10 +33,11 @@ func _on_troop_pressed(troop: Area2D) -> void:
 			stats_ui.show();
 		return;
 	
+	cur_selected_troop = troop;
+	
+	load_stats_ui();
 	lower_ui.show();
 	stats_ui.show();
-	
-	cur_selected_troop = troop;
 	
 	print("Loading move range");
 
